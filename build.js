@@ -53,6 +53,7 @@ if (!force) {
 
 // Build it
 function build() {
+	// TODO - handle error (node-gyp not on PATH)
 	cp.spawn(
 		process.platform === 'win32' ? 'node-gyp.cmd' : 'node-gyp',
 		['rebuild'].concat(args),
