@@ -34,7 +34,7 @@
       'copies': [
         {
           'files': [ '<(PRODUCT_DIR)/node_sqlite3.node' ],
-          'destination': './lib/'
+          'destination': './build/'
         }
       ]
     }
