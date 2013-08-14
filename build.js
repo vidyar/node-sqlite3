@@ -1,6 +1,7 @@
+#!/usr/bin/env node
+
 // script adapted from https://github.com/laverdet/node-fibers
 
-#!/usr/bin/env node
 var cp = require('child_process'),
 	fs = require('fs'),
 	path = require('path');
