@@ -7,6 +7,7 @@ clean:
 	rm -rf ./deps/sqlite-autoconf-*/
 	rm -rf ./build
 	rm -rf ./out
+	rm -f ./lib/node_sqlite3.node
 
 test:
 	npm test
