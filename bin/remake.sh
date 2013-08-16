@@ -9,7 +9,7 @@ if [ ${UNAME} = 'Darwin' ]; then
     rm -rf ./bin/darwin-*
     node ./build.js --target_arch=x64
     node ./build.js --target_arch=ia32
-elif [ ${UNAME} = 'Linux' ];
+elif [ ${UNAME} = 'Linux' ]; then
     rm -rf ./bin/linux-*
     apt-get upgrade
     apt-get install git make build-essential
