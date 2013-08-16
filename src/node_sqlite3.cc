@@ -1,10 +1,10 @@
 #include <node.h>
 #include <node_buffer.h>
 
-#include <stdint.h>
 #include <sstream>
 #include <cstring>
 #include <string>
+#include <stdint.h>
 #include <sqlite3.h>
 
 #include "macros.h"
