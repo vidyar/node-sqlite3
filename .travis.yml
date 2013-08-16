@@ -1,6 +1,14 @@
 language: node_js
+
 node_js:
-  - "0.10"
-  - "0.8"
-  - "0.6"
-before_script: "npm install mocha"
+- '0.10'
+- '0.8'
+- '0.6'
+
+before_script: npm install mocha
+
+after_success: ./bin/travis.sh
+
+env:
+  global:
+    secure: rUAWFk9UyOhS84TYBX9OXQ3ya7O/e5YOElkABiwYoHOovbEkp1sxaQIfdg4gjdIarDvuSFIf3vY/QUC9xa1XWQjFhAwvdfMqwS+pOSTo03iTpTG3PTXmdEJ6jKaxCbcG0iytUqn0Yt6Lv6QrN5sEYimzV9pzWWV9KeO612OGUrM=
