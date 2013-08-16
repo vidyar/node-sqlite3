@@ -7,6 +7,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   cd node-sqlite3-bin
   BINARY=$(node -e "console.log(process.platform +'-'+process.arch+'-v8-'+(/[0-9]+\.[0-9]+/.exec(process
 .versions.v8)[0]))")
+  mkdir -p ./bin/${BINARY}/
   cp ${TRAVIS_BUILD_DIR}/bin/$BINARY/*node ./bin/${BINARY}/
   git add ./bin/${BINARY}/*node
   git commit -a -m "Travis build ${TRAVIS_BUILD_NUMBER}: update ${BINARY} binary in ${TRAVIS_BRANCH} [ci skip]"
