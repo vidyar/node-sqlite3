@@ -2,8 +2,8 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo "rebuilding binaries for node v${TRAVIS_NODE_VERSION}\n"
   echo `pwd`
   #cd $HOME
-  #git config --global user.email "travis@travis-ci.org"
-  #git config --global user.name "Travis"
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis"
   #git clone --quiet --branch=${TRAVIS_BRANCH} https://${GH_TOKEN}@github.com/developmentseed/node-sqlite3.git > /dev/null
   #cd node-sqlite3
   #npm install
