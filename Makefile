@@ -1,5 +1,5 @@
 build:
-	node-gyp build
+	node build.js
 
 clean:
 	rm -f test/support/big.db*
