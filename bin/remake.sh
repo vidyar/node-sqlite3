@@ -11,8 +11,8 @@ if [ ${UNAME} = 'Darwin' ]; then
     node ./build.js --target_arch=ia32
 elif [ ${UNAME} = 'Linux' ]; then
     rm -rf ./bin/linux-*
-    apt-get upgrade
-    apt-get install git make build-essential
+    apt-get -y update
+    apt-get -y install git make build-essential
     git clone https://github.com/creationix/nvm.git ~/.nvm
     source ~/.nvm/nvm.sh
     nvm install 0.10
@@ -26,6 +26,6 @@ elif [ ${UNAME} = 'Linux' ]; then
     # ignore: 
     # dependency problems - leaving unconfigure  gcc-4.6:i386 g++-4.6:i386 libstdc++6-4.6-dev:i386
     # E: Sub-process /usr/bin/dpkg returned an error code (1)
-    apt-get install binutils:i386 cpp:i386 gcc-4.6:i386 g++-4.6:i386 libstdc++6-4.6-dev:i386
+    apt-get -y install binutils:i386 cpp:i386 gcc-4.6:i386 g++-4.6:i386 libstdc++6-4.6-dev:i386 | true
     CC=gcc-4.6 CXX=g++-4.6 node ./build.js --target_arch=ia32    
 fi
