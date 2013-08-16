@@ -5,9 +5,12 @@ node_js:
 - '0.8'
 - '0.6'
 
+script:
+ - ./bin/clear.sh
+ - npm install
+
 before_script:
  - npm install mocha
- - ./bin/clear.sh
 
 after_success: ./bin/travis.sh
 
