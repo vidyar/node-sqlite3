@@ -203,6 +203,7 @@ public:
     WORK_DEFINITION(Reset);
 
     static Handle<Value> Finalize(const Arguments& args);
+    static Handle<Value> dummy(const Arguments& args);
 
 protected:
     static void Work_BeginPrepare(Database::Baton* baton);

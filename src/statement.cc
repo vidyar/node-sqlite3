@@ -27,6 +27,7 @@ void Statement::Init(Handle<Object> target) {
     NODE_SET_PROTOTYPE_METHOD(constructor_template, "each", Each);
     NODE_SET_PROTOTYPE_METHOD(constructor_template, "reset", Reset);
     NODE_SET_PROTOTYPE_METHOD(constructor_template, "finalize", Finalize);
+    NODE_SET_PROTOTYPE_METHOD(constructor_template, "dummy", dummy);
 
     target->Set(String::NewSymbol("Statement"),
         constructor_template->GetFunction());
@@ -75,6 +76,10 @@ template <class T> void Statement::Error(T* baton) {
     }
 }
 
+Handle<Value> Statement::dummy(const Arguments& args) {
+    HandleScope scope;
+    return Undefined();
+}
 // { Database db, String sql, Array params, Function callback }
 Handle<Value> Statement::New(const Arguments& args) {
     HandleScope scope;

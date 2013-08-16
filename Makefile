@@ -1,4 +1,5 @@
 build:
+	./bin/clear.sh
 	node build.js
 
 clean:
