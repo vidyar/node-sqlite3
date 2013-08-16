@@ -1,5 +1,5 @@
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  echo "rebuilding binaries for node v${TRAVIS_NODE_VERSION}\n"
+  echo -e "rebuilding binaries for node v${TRAVIS_NODE_VERSION}\n"
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
@@ -8,9 +8,17 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   BINARY=$(node -e "console.log(process.platform +'-'+process.arch+'-v8-'+(/[0-9]+\.[0-9]+/.exec(process
 .versions.v8)[0]))")
   mkdir -p ./bin/${BINARY}/
-  cp ${TRAVIS_BUILD_DIR}/bin/$BINARY/*node ./bin/${BINARY}/
-  git add ./bin/${BINARY}/*node
-  git commit -a -m "Travis build ${TRAVIS_BUILD_NUMBER}: update ${BINARY} binary in ${TRAVIS_BRANCH} [ci skip]"
+  NFROM="${TRAVIS_BUILD_DIR}/bin/${BINARY}/node_sqlite3.node"
+  NTO="./bin/${BINARY}/node_sqlite3.node"
+  if [ -f  "${NFROM}" ]; then
+     echo -e "Copying ${NFROM} to ${NTO}"
+     cp "${NFROM}" "${NTO}"
+  else
+     echo -e "Not found to copy: ${NFROM}"
+  fi
+  echo -e "Adding to git: ${NTO}"
+  git add "${NTO}"
+  git commit "${NTO}" -m "Travis build ${TRAVIS_BUILD_NUMBER}: update ${BINARY} binary in ${TRAVIS_BRANCH} [ci skip]"
   git push -fq origin ${TRAVIS_BRANCH} > /dev/null
-  echo "Finished posting binaries\n"
+  echo -e "Finished posting binaries\n"
 fi
