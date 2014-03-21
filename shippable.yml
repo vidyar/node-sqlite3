@@ -3,8 +3,3 @@ node_js:
   
   - "0.6"
 before_script: "npm install mocha"
-notifications:
-  email:
-      - vidyac.raghav@gmail.com
-  campfire: qhode1:99b2845783c6adf698c143927e45d11045c47804@572555
-
